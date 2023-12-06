@@ -7,6 +7,7 @@ class FixedButton extends StatelessWidget {
   final Color buttonColor;
   final TextStyle textStyle;
   final String navigateTo;
+
   const FixedButton({
     super.key,
     required this.text,
