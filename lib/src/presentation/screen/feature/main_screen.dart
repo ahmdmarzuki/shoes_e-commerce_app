@@ -48,7 +48,7 @@ class _MainScreenState extends State<MainScreen> {
                 ? backgroundColor1
                 : currentIndex == 1
                     ? backgroundColor3
-                    : backgroundColor1,
+                    : backgroundColor3,
           ),
           width: double.infinity,
           child: BottomAppBar(
