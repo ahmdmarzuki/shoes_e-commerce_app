@@ -63,12 +63,18 @@ class ChatScreen extends StatelessWidget {
     Widget content() {
       return Expanded(
         child: Container(
-          padding: EdgeInsets.only(top: defaultMargin),
           width: double.infinity,
           color: backgroundColor3,
           child: ListView(
             padding: EdgeInsets.symmetric(horizontal: defaultMargin),
             children: const [
+              SizedBox(height: 30),
+              ChatTile(),
+              ChatTile(),
+              ChatTile(),
+              ChatTile(),
+              ChatTile(),
+              ChatTile(),
               ChatTile(),
               ChatTile(),
               ChatTile(),

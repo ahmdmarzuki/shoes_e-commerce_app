@@ -3,7 +3,6 @@ import 'package:shoes_ecommerce_app/src/presentation/screen/feature/chat_screen.
 import 'package:shoes_ecommerce_app/src/presentation/screen/feature/favorite_screen.dart';
 import 'package:shoes_ecommerce_app/src/presentation/screen/feature/home_screen.dart';
 import 'package:shoes_ecommerce_app/src/presentation/screen/feature/profile_screen.dart';
-import 'package:shoes_ecommerce_app/src/utils/costum_text.dart';
 import 'package:shoes_ecommerce_app/theme.dart';
 
 import 'widget/cart_button_widget.dart';
