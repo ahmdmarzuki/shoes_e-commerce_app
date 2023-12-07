@@ -19,6 +19,7 @@ Color secondaryTextColor = const Color(0xFF999999);
 Color subtitleTextColor = const Color(0xFF504F5E);
 Color blackTextColor = const Color(0xFF2E2E2E);
 Color onlineIndicator = const Color(0xFF51C17E);
+Color secondaryButtonColor = const Color(0xFF39374B);
 Color transparentColor = Colors.transparent;
 
 TextStyle primaryTextStyle = GoogleFonts.poppins(color: primaryTextColor);
@@ -27,6 +28,7 @@ TextStyle priceTextStyle = GoogleFonts.poppins(color: priceColor);
 TextStyle purpleTextStyle = GoogleFonts.poppins(color: primaryColor);
 TextStyle subtitleTextStyle = GoogleFonts.poppins(color: subtitleTextColor);
 TextStyle blackTextStyle = GoogleFonts.poppins(color: blackTextColor);
+TextStyle alertTextStyle = GoogleFonts.poppins(color: alertColor);
 
 FontWeight light = FontWeight.w300;
 FontWeight reguler = FontWeight.w400;
