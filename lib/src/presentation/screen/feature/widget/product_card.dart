@@ -7,51 +7,55 @@ class ProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.only(top: 30, bottom: 20),
-      // height: 278,
-      width: 215,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(20),
-        color: cardColor,
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Center(
-            child: Image.asset(
-              'assets/image_shoes.png',
-              width: 215,
-              fit: BoxFit.cover,
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushNamed(context, '/product');
+      },
+      child: Container(
+        padding: EdgeInsets.only(top: 30, bottom: 20),
+        width: 215,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          color: cardColor,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Center(
+              child: Image.asset(
+                'assets/image_shoes.png',
+                width: 215,
+                fit: BoxFit.cover,
+              ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                CostumText(
-                  text: "Hiking",
-                  textStyle: subtitleTextStyle,
-                  fontSize: 12,
-                ),
-                CostumText(
-                  text: "COURT VISION 2.0",
-                  textStyle: blackTextStyle,
-                  fontSize: 16,
-                  fontWeight: semiBold,
-                ),
-                CostumText(
-                  text: "\$58,67",
-                  textStyle: priceTextStyle,
-                  fontSize: 14,
-                  fontWeight: medium,
-                ),
-              ],
-            ),
-          )
-        ],
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  CostumText(
+                    text: "Hiking",
+                    textStyle: subtitleTextStyle,
+                    fontSize: 12,
+                  ),
+                  CostumText(
+                    text: "COURT VISION 2.0",
+                    textStyle: blackTextStyle,
+                    fontSize: 16,
+                    fontWeight: semiBold,
+                  ),
+                  CostumText(
+                    text: "\$58,67",
+                    textStyle: priceTextStyle,
+                    fontSize: 14,
+                    fontWeight: medium,
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

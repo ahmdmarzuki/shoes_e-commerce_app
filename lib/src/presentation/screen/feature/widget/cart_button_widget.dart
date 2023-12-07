@@ -15,7 +15,7 @@ class CartButton extends StatelessWidget {
         onPressed: () {},
         backgroundColor: secondaryColor,
         child: Image.asset(
-          'assets/icon_cart.png',
+          'assets/icon_cart_white.png',
           width: 24,
         ),
       ),

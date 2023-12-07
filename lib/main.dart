@@ -4,6 +4,7 @@ import 'package:shoes_ecommerce_app/src/presentation/screen/feature/detail_chat.
 import 'package:shoes_ecommerce_app/src/presentation/screen/feature/edit_profile_screen.dart';
 import 'package:shoes_ecommerce_app/src/presentation/screen/feature/main_screen.dart';
 import 'package:shoes_ecommerce_app/src/presentation/screen/feature/profile_screen.dart';
+import 'package:shoes_ecommerce_app/src/presentation/screen/product/product_screen.dart';
 
 import 'src/presentation/screen/auth/login_screen.dart';
 import 'src/presentation/screen/auth/splash_screen.dart';
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
         '/main': (context) => const MainScreen(),
         '/detail-chat': (context) => const DetailChat(),
         '/edit-profile': (context) => const EditProfileScreen(),
+        '/product': (context) => ProductScreen(),
       },
     );
   }
