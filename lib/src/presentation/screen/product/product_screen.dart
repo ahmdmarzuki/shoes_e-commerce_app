@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:shoes_ecommerce_app/src/utils/costum_text.dart';
+import 'package:shoes_ecommerce_app/src/utils/fixed_button.dart';
 import 'package:shoes_ecommerce_app/theme.dart';
 
 class ProductScreen extends StatefulWidget {
@@ -28,9 +29,69 @@ class _ProductScreenState extends State<ProductScreen> {
   ];
 
   int currentIndex = 0;
+  bool isFav = false;
 
   @override
   Widget build(BuildContext context) {
+    Future<void> showSuccessDialog() async {
+      return showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return SizedBox(
+              // width: MediaQuery.of(context).size.width - (2 * defaultMargin),
+              child: AlertDialog(
+                contentPadding:
+                    EdgeInsets.only(bottom: 45, top: 10, right: 8, left: 8),
+                backgroundColor: backgroundColor3,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30),
+                ),
+                content: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          IconButton(
+                            // alignment: Alignment.centerLeft,
+                            icon: Icon(Icons.close),
+                            color: primaryTextColor,
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                          ),
+                        ],
+                      ),
+                      Image.asset(
+                        'assets/image_success.png',
+                        width: 100,
+                      ),
+                      SizedBox(height: 12),
+                      CostumText(
+                        text: "Hurray :)",
+                        textStyle: primaryTextStyle,
+                        fontSize: 18,
+                        fontWeight: semiBold,
+                      ),
+                      SizedBox(height: 12),
+                      CostumText(
+                        text: "Item added successfully",
+                        textStyle: subtitleTextStyle,
+                      ),
+                      SizedBox(height: 20),
+                      FixedButton(
+                          text: "View my cart",
+                          buttonColor: primaryColor,
+                          textStyle: primaryTextStyle,
+                          navigateTo: '/cart')
+                    ],
+                  ),
+                ),
+              ),
+            );
+          });
+    }
+
     Widget indicator(int index) {
       return Container(
         height: 4,
@@ -61,8 +122,7 @@ class _ProductScreenState extends State<ProductScreen> {
       return Column(
         children: [
           Container(
-            margin: EdgeInsets.only(
-                top: 20, left: defaultMargin, right: defaultMargin),
+            margin: EdgeInsets.only(top: 20, left: 20, right: defaultMargin),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -144,9 +204,43 @@ class _ProductScreenState extends State<ProductScreen> {
                       ),
                     ],
                   ),
-                  Image.asset(
-                    'assets/button_favorite.png',
-                    width: 46,
+                  GestureDetector(
+                    onTap: () {
+                      setState(
+                        () {
+                          isFav = !isFav;
+                        },
+                      );
+                      if (isFav) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            backgroundColor: secondaryColor,
+                            content: CostumText(
+                              text: "Has been added to the Favorite",
+                              textStyle: primaryTextStyle,
+                              align: TextAlign.center,
+                            ),
+                          ),
+                        );
+                      } else {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            backgroundColor: alertColor,
+                            content: CostumText(
+                              text: "Has been removed from the Favorite",
+                              textStyle: primaryTextStyle,
+                              align: TextAlign.center,
+                            ),
+                          ),
+                        );
+                      }
+                    },
+                    child: Image.asset(
+                      isFav
+                          ? 'assets/button_favorite_enable.png'
+                          : 'assets/button_favorite.png',
+                      width: 46,
+                    ),
                   )
                 ],
               ),
@@ -235,12 +329,17 @@ class _ProductScreenState extends State<ProductScreen> {
               margin: EdgeInsets.all(defaultMargin),
               child: Row(
                 children: [
-                  Container(
-                    width: 54,
-                    height: 54,
-                    decoration: BoxDecoration(
-                        image: DecorationImage(
-                            image: AssetImage('assets/button_chat.png'))),
+                  GestureDetector(
+                    onTap: () {
+                      Navigator.pushNamed(context, '/detail-chat');
+                    },
+                    child: Container(
+                      width: 54,
+                      height: 54,
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage('assets/button_chat.png'))),
+                    ),
                   ),
                   SizedBox(width: 16),
                   Expanded(
@@ -248,10 +347,14 @@ class _ProductScreenState extends State<ProductScreen> {
                       height: 54,
                       child: TextButton(
                         style: TextButton.styleFrom(
-                            backgroundColor: primaryColor,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(12))),
-                        onPressed: () {},
+                          backgroundColor: primaryColor,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                        ),
+                        onPressed: () {
+                          showSuccessDialog();
+                        },
                         child: CostumText(
                           text: "Add to cart",
                           textStyle: primaryTextStyle,

@@ -12,7 +12,9 @@ class CartButton extends StatelessWidget {
       width: 70,
       height: 70,
       child: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushNamed(context, '/cart');
+        },
         backgroundColor: secondaryColor,
         child: Image.asset(
           'assets/icon_cart_white.png',

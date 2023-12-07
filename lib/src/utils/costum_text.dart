@@ -5,6 +5,7 @@ class CostumText extends StatelessWidget {
   final FontWeight? fontWeight;
   final TextStyle textStyle;
   final double? fontSize;
+  final TextAlign? align;
   final TextOverflow? textOverflow;
   const CostumText(
       {super.key,
@@ -12,7 +13,8 @@ class CostumText extends StatelessWidget {
       required this.textStyle,
       this.fontWeight,
       this.fontSize,
-      this.textOverflow = TextOverflow.ellipsis});
+      this.textOverflow = TextOverflow.ellipsis,
+      this.align});
 
   @override
   Widget build(BuildContext context) {
@@ -23,6 +25,7 @@ class CostumText extends StatelessWidget {
         fontWeight: fontWeight,
       ),
       overflow: textOverflow,
+      textAlign: align,
     );
   }
 }
